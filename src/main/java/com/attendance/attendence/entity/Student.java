@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -18,5 +20,7 @@ public class Student {
     private Date dateOfBirth;
     private String location;
     private String department;
+    @ManyToMany(mappedBy = "students")
+    private Set<Course> courses;
 
 }
