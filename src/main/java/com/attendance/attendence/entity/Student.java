@@ -23,4 +23,6 @@ public class Student {
     @ManyToMany(mappedBy = "students")
     private Set<Course> courses;
 
+    public void setId(Long id) {
+    }
 }
