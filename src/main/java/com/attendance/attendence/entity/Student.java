@@ -2,11 +2,14 @@ package com.attendance.attendence.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Generated;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.Set;
-
+@Setter
+@Generated
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -23,6 +26,5 @@ public class Student {
     @ManyToMany(mappedBy = "students")
     private Set<Course> courses;
 
-    public void setId(Long id) {
-    }
+
 }

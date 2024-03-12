@@ -6,6 +6,8 @@ import com.attendance.attendence.entity.AttendanceRecords;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 
 public class AttendanceRecordsServiceImpl implements AttendanceRecordsService {
@@ -23,17 +25,22 @@ private final AttendanceRecordsRepository attendanceRecordsRepository;
     }
 
     @Override
-    public AttendanceRecords getAttendanceRecordsById(Long id) {
-        return null;
+    public Optional<AttendanceRecords> getAttendanceRecordsById(Long id) {
+        return attendanceRecordsRepository.findById(id);
+
     }
 
     @Override
     public void saveAttendanceRecords(AttendanceRecords attendanceRecords) {
-
+          attendanceRecordsRepository.save(attendanceRecords);
     }
 
     @Override
     public boolean deleteAttendanceRecordsById(Long id) {
+        if (!attendanceRecordsRepository.existsById(id))
         return false;
+        attendanceRecordsRepository.deleteById(id);
+        return true;
     }
+
 }
