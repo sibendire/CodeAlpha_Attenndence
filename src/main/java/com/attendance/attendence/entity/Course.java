@@ -12,6 +12,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
+@Table(name = "course")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +27,7 @@ public class Course {
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
     private Set<Student> students;
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "courseId")
     private Set<AttendanceRecords> attendanceRecords;
 
     public void setId(Long id) {
