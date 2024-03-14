@@ -55,9 +55,8 @@ public class CourseController {
             return ResponseEntity.notFound().build();
         }
     }
-
-    @GetMapping("/delete/{id}")
-    public ResponseEntity<String> deleteCourseRecord(Long id) {
+    @DeleteMapping("/delete/course/{id}")
+    public ResponseEntity<String> deleteCourseRecord(@PathVariable("id") Long id) {
         boolean delete = courseService.deleteCourseById(id);
         if (delete) {
             return ResponseEntity.ok("The records have been deleted successfully");
