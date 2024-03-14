@@ -36,6 +36,16 @@ private final AttendanceRecordsRepository attendanceRecordsRepository;
     }
 
     @Override
+    public boolean updateAttendanceRecordsById(Long id, AttendanceRecords attendanceRecords) {
+        if (!attendanceRecordsRepository.existsById(id)){
+            return false;
+        }
+        attendanceRecords.setId(id);
+        attendanceRecordsRepository.save(attendanceRecords);
+        return true;
+    }
+
+    @Override
     public boolean deleteAttendanceRecordsById(Long id) {
         if (!attendanceRecordsRepository.existsById(id))
         return false;

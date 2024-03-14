@@ -59,9 +59,8 @@ public class ResourceController {
             return ResponseEntity.notFound().build();
         }
     }
-
-    @GetMapping("/delete/{id}")
-    public ResponseEntity<String> deleteStudentRecord(Long id) {
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteStudentRecord(@PathVariable("id") Long id) {
         boolean delete = studentService.deleteById(id);
         if (delete) {
             return ResponseEntity.ok("The records have been deleted successfully");

@@ -11,6 +11,7 @@ public interface AttendanceRecordsService {
     Optional<AttendanceRecords> getAttendanceRecordsById(Long id);
 
     void saveAttendanceRecords(AttendanceRecords attendanceRecords);
+    boolean updateAttendanceRecordsById(Long id,AttendanceRecords attendanceRecords);
 
     boolean deleteAttendanceRecordsById(Long id);
 }
